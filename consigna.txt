@@ -1,0 +1,75 @@
+
+Consigna: Extensión del Sistema de Login con Sistema de Tutorías en PHP MVC
+
+Objetivo:
+Ampliar el sistema de autenticación de usuarios desarrollado en el ejercicio anterior (sistema de login básico) para incluir un sistema de tutorías. Los usuarios podrán registrarse como tutores que ofrecen servicios en diversas asignaturas, y otros usuarios autenticados podrán solicitar tutorías de los tutores disponibles. El sistema debe mantener el patrón MVC (Modelo-Vista-Controlador) y basarse en el código existente.
+
+Funcionalidades a Implementar:
+- **Usuarios**: Pueden registrarse, iniciar sesión y ver la lista de tutores disponibles.
+- **Tutores**: Usuarios registrados que ofrecen tutorías en asignaturas específicas (matemáticas, lengua y literatura, idiomas, etc.).
+- **Solicitudes**: Usuarios autenticados pueden solicitar tutorías a tutores específicos en asignaturas disponibles.
+- **Flujo**: La página pública muestra tutores; después del login, hay un panel para solicitar tutorías.
+
+Estructura del Proyecto:
+- Mantener las carpetas: models/, views/, controllers/.
+- Usar el patrón MVC para organizar el código.
+
+Base de Datos:
+- Mantener la tabla `usuarios` del ejercicio anterior.
+- Crear las siguientes tablas adicionales en la base de datos `bdnegocio`:
+  - `asignaturas`: Para almacenar las asignaturas disponibles.
+  - `tutores`: Relacionada con usuarios, con descripción.
+  - `tutor_asignaturas`: Relación muchos-a-muchos entre tutores y asignaturas.
+  - `solicitudes`: Para almacenar las solicitudes de tutorías, con estados (pendiente, aceptada, rechazada).
+- Insertar asignaturas de ejemplo: Matemáticas, Lengua y Literatura, Idiomas, Ciencias, Historia.
+
+Modelos (models/):
+- `UserModel.php`: Mantener del ejercicio anterior (maneja autenticación).
+- `TutorModel.php`: Nuevo. Debe incluir métodos para:
+  - Obtener todos los tutores con sus asignaturas.
+  - Registrar un tutor con descripción y asignaturas seleccionadas.
+  - Obtener la lista de asignaturas disponibles.
+- `RequestModel.php`: Nuevo. Debe incluir métodos para:
+  - Crear una solicitud de tutoría.
+  - Obtener las solicitudes de un usuario específico.
+
+Controladores (controllers/):
+- `AuthController.php`: Mantener del ejercicio anterior (login, registro, logout).
+- `HomeController.php`: Modificar para mostrar la lista de tutores en la página principal.
+- `TutorController.php`: Nuevo. Debe manejar:
+  - Mostrar y procesar el formulario de registro de tutor.
+  - Mostrar y procesar el formulario de solicitud de tutoría.
+  - Mostrar las solicitudes del usuario.
+
+Vistas (views/):
+- `home.php`: Modificar para mostrar la lista de tutores disponibles, con enlaces para solicitar tutoría si el usuario está logueado.
+- `register_tutor.php`: Nuevo. Formulario para que un usuario se registre como tutor, seleccionando asignaturas.
+- `request_tutoria.php`: Nuevo. Formulario para solicitar tutoría a un tutor específico, eligiendo asignatura.
+- `my_requests.php`: Nuevo. Página que muestra las solicitudes de tutoría del usuario logueado.
+- Mantener vistas del login del ejercicio anterior (login.php, register.php).
+
+Router (index.php):
+- Actualizar el switch para incluir las nuevas acciones:
+  - register_tutor
+  - register_tutor_process
+  - request_tutoria
+  - request_tutoria_process
+  - my_requests
+
+Requisitos Técnicos:
+- Usar PHP con PDO para la conexión a la base de datos.
+- Implementar sesiones para mantener la autenticación.
+- Validar que solo usuarios logueados puedan acceder a ciertas funcionalidades.
+- Usar prepared statements para prevenir SQL injection.
+- Mantener la simplicidad y claridad del código.
+
+Entrega:
+- Todos los archivos modificados y nuevos en la estructura de carpetas.
+- El archivo config.php para la conexión a la base de datos.
+- Una breve explicación de cómo probar el sistema (pasos para registrar usuarios, tutores, solicitar tutorías).
+
+Evaluación:
+- Funcionalidad completa del sistema.
+- Correcta implementación del patrón MVC.
+- Seguridad en el manejo de datos y sesiones.
+- Claridad y organización del código.
