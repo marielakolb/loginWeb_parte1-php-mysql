@@ -672,3 +672,4 @@ Este resumen ayuda a comprender cómo se aplican conceptos básicos y avanzados 
 - `switch ($action)`: Estructura de control switch para determinar qué controlador instanciar basado en la acción.
 - `$controller = new AuthController();`: Instancia la clase AuthController.
 - `$controller->login();`: Llama al método login para manejar la acción.
+
