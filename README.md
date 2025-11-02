@@ -1,6 +1,6 @@
 # Guía para Construir una Aplicación de Login en PHP con Patrón MVC
 
-Esta guía explica paso a paso cómo construir desde cero una aplicación web de login y registro en PHP utilizando el patrón de diseño MVC (Modelo-Vista-Controlador). El enfoque MVC separa la lógica de negocio, la presentación y el control de la aplicación para un mejor mantenimiento y escalabilidad.
+Esta guía explica paso a paso cómo construir desde cero una aplicación web de login y registro en PHP utilizando el patrón de diseño MVC (Modelo-Vista-Controlador). El enfoque MVC separa la lógica de negocio, la presentación y el control de la aplicación para un mejor mantenimiento y escalabilidad. Este pequeño aplicativo seguirá ampliándose designándose por partes para ir viendo cómo evoluciona, la siguiente parte, la 2, reutiliza este aplicativo de inicio de sesión y registro de usuarios, para permitir la gestión de tutorías. 
 
 ## ¿Qué es MVC?
 
@@ -672,4 +672,5 @@ Este resumen ayuda a comprender cómo se aplican conceptos básicos y avanzados 
 - `switch ($action)`: Estructura de control switch para determinar qué controlador instanciar basado en la acción.
 - `$controller = new AuthController();`: Instancia la clase AuthController.
 - `$controller->login();`: Llama al método login para manejar la acción.
+
 
